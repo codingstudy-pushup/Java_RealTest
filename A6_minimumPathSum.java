@@ -14,7 +14,7 @@ public class A6_minimumPathSum {
 	}
 
 	int m, n;
-	int[][] dirs = { { -1, 0 }, { 1, 0 }, { 0, 1 }, { 0, -1 } };
+	int[][] dirs = { { 1, 0 }, { 0, 1 } };
 
 	public int solve(int[][] grid) {
 		// 1.
