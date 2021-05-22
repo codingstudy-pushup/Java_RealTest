@@ -28,8 +28,8 @@ public class A05_ShortestPathMatrix {
 		visited[0][0] = true;
 		Queue<int[]> queue = new LinkedList<>();
 		queue.add(new int[] { 0, 0 });
-
 		int count = 0;
+		
 		while (!queue.isEmpty()) {
 			int size = queue.size();
 			for (int i = 0; i < size; i++) {
