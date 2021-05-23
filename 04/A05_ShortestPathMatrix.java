@@ -19,17 +19,15 @@ public class A05_ShortestPathMatrix {
 
 		int m = grid.length;
 		int n = grid[0].length;
-
-		if (grid[0][0] == 1 || grid[m - 1][n - 1] == 1) {
+		if (grid[0][0] == 1 || grid[m - 1][n - 1] == 1) 
 			return -1;
-		}
 
 		boolean[][] visited = new boolean[m][n];
 		visited[0][0] = true;
 		Queue<int[]> queue = new LinkedList<>();
 		queue.add(new int[] { 0, 0 });
+
 		int count = 0;
-		
 		while (!queue.isEmpty()) {
 			int size = queue.size();
 			for (int i = 0; i < size; i++) {
