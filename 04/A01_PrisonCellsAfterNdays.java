@@ -18,11 +18,12 @@ public class A01_PrisonCellsAfterNdays {
 		boolean isCycle = false;
 		int cycle = 0;
 		HashSet<String> set = new HashSet<>();
+		
 		for (int i = 0; i < N; i++) {
 			int[] next = nextDay(cells);
 			String key = Arrays.toString(next);
 			System.out.println(i + " " + key);
-			if (!set.contains(key)) { // store cell state
+			if (!set.contains(key)) { 
 				set.add(key);
 				cycle++;
 			} else {
