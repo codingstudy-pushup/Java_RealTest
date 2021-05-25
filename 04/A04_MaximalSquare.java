@@ -24,22 +24,26 @@ public class A04_MaximalSquare {
 	}
 
 	public int solve_dp(char[][] matrix) {
-		int rows = matrix.length, cols = rows > 0 ? matrix[0].length : 0;
-		int[][] dp = new int[rows + 1][cols + 1];
-		int maxsqlen = 0;
-		for (int i = 1; i <= rows; i++) {
-			for (int j = 1; j <= cols; j++) {
+		//1. ds
+		int m = matrix.length, n = m > 0 ? matrix[0].length : 0;
+		int[][] dp = new int[m + 1][n + 1];
+		int maxSquare = 0;
+		
+		//2. for,while
+		for (int i = 1; i <= m; i++) {
+			for (int j = 1; j <= n; j++) {
 				if (matrix[i - 1][j - 1] == '1') {
-					dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+					int min = Math.min(dp[i][j - 1], dp[i - 1][j]);
+					dp[i][j] = Math.min(min, dp[i - 1][j - 1]) + 1;
 					System.out.println("===dp======");
 					print(dp);
-					maxsqlen = Math.max(maxsqlen, dp[i][j]);
+					maxSquare = Math.max(maxSquare, dp[i][j]);
 				}
 			}
 			System.out.println("===22 dp======");
 			print(dp);
 		}
-		return maxsqlen * maxsqlen;
+		return maxSquare * maxSquare;
 	}
 
 	void print(int[][] grid) {
