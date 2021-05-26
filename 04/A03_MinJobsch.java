@@ -36,14 +36,19 @@ public class A03_MinJobsch {
 				dp[d][len] = Integer.MAX_VALUE;
 
 				for (int schedule = len; schedule >= d; schedule--) {
-					System.out.println("jobDifficulty[" + schedule + "] " + jobDifficulty[schedule]);
+					//System.out.println("schedule: "+schedule);
+					//System.out.println("jobDifficulty[" + schedule + "] " + jobDifficulty[schedule]);
 					localMax = Math.max(localMax, jobDifficulty[schedule]);
-					System.out.println("dp[" + d + "][" + len + "] " + dp[d][len]);
+					//System.out.println("dp["+d+"]["+len+"]"+dp[d][len]);
+					//System.out.println("dp["+(d-1)+"]["+(schedule - 1)+"]"+dp[d - 1][schedule - 1]+"+"+localMax
+					//		+"="+(dp[d - 1][schedule - 1] + localMax));
 					dp[d][len] = Math.min(dp[d][len], dp[d - 1][schedule - 1] + localMax);
+					//System.out.println("dp["+d+"]["+len+"]"+dp[d][len]);
 				}
-				System.out.println("==============");
+				//System.out.println("======schedule========");
 				print(dp);
 			}
+			System.out.println("======len========");
 		}
 		return dp[day - 1][n - 1];
 	}
